@@ -1,0 +1,31 @@
+Balance Sheet
+2019
+2020
+2021
+Assets
+2019	2020	2021
+Cash
+This is the cash we currently have on hand.
+$25	$30	$28
+Checking
+Our primary transactional account.
+$54	$56	$53
+Savings
+Funds set aside for emergencies.
+$500	$650	$728
+TotalAssets	$579	$736	$809
+Liabilities
+2019	2020	2021
+Loans
+The outstanding balance on our startup loan.
+$500	$250	$0
+Expenses
+Annual anticipated expenses, such as payroll.
+$200	$300	$400
+Credit
+The outstanding balance on our credit card.
+$50	$50	$75
+TotalLiabilities	$750	$600	$475
+Net Worth
+2019	2020	2021
+TotalNet Worth	$-171	$136	$334
