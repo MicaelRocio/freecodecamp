@@ -1,0 +1,124 @@
+@charset "UTF-8";
+
+.flex-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+body {
+    background-color: #588C7E;
+    text-align: center;
+
+}
+@font-face {
+    font-family: 'viking2';
+    src: url(fonts/viking2.ttf) format(truetype);
+    font-weight: lighter;
+    font-style: normal;
+    }
+
+@font-face {
+    font-family: 'viking';
+    src: url(fonts/viking.ttf) format(truetype);
+    font-weight: lighter;
+    font-style: normal;
+    }
+@font-face {
+        font-family: 'morris';
+        src: url(fonts/morris.ttf) format(truetype), url(fonts/morris.otf) format(opentype);
+
+    }
+
+    #nav-bar {
+        position: fixed;
+        top: 0;
+        min-height: 75px;
+        padding: 0px 20px;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+
+    header {
+        font-family: var(--fonte0);
+        text-align: center;
+        margin: 0px;
+        padding: 10px;
+        border-radius: 10px;
+        text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.466);
+        font-size: 2em;
+        background-image: linear-gradient(to bottom, var(--cor2), var(--cor0));
+    }
+
+    nav > a {
+        display: inline-block;
+        text-align: center;
+        font-weight: bold;
+        padding: 10px;
+        border-radius: 5px;
+        transition-duration: 0.5s;
+        text-decoration: none;
+        background-color: var(--cor1);
+        color: black;
+        box-shadow: 0px 7px 7px rgba(0, 0, 0, 0.418);
+    }
+
+    nav > a:hover {
+        background-color: var(--cor0);
+        color: var(--cor3);
+    }
+
+    footer {
+        text-align: right;
+    }
+
+    .imglog {
+        text-align: center;
+    }
+   
+    h2 {
+        font-family: var(--fonte0);
+        text-align: center;
+        font-size: 2em;
+    }
+
+    main > div > div {
+
+        display: inline-block;
+        background-color: var(--cor1);
+        border: 1px solid var(--cor0);
+        text-align: center;
+        height: 400px;
+        width: 270px;
+        box-shadow: 3px 3px 1px rgba(0, 0, 0, 0.432);
+        border-radius: 40px;
+    }
+
+    main > div > div:hover {
+        background-color: var(--cor0);
+        transition: 0.25s;
+    }
+
+    div > a {
+        text-decoration: none;
+        color: black;
+    }
+
+    .lista {
+        text-align: left;
+        font-family: var(--fonte1);
+        font-size: 1em;
+    }
+
+    :root {
+        --cor0: #0A4031;
+        --cor1: #1F735B;
+        --cor2: #588C7E;
+        --cor3: #9BBFB5;
+        --fonte0: 'viking';
+        --fonte1: 'morris';
+    }
+
+
