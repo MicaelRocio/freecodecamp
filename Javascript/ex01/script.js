@@ -4,7 +4,7 @@ let gold = 50;
 let currentWeapon = 0;
 let fighting;
 let monsterHealth;
-let inventory = ["stick"];
+let inventory = ["Graveto"];
 const button1 = document.querySelector("#button1")
 const button2 = document.querySelector("#button2")
 const button3 = document.querySelector("#button3")
@@ -18,21 +18,40 @@ const monsterHealthText = document.querySelector("#monsterHealth")
 const weapons = [
     {
         name: "Graveto",
-        power : 5,
+        power: 5
     },
     {
         name: "Adaga",
-        power : 30,
+        power: 30
     },
     {
         name: "Marelo de garra",
-        power : 50,
+        power: 50
     },
     {
         name: "Espada",
-        power : 100,
+        power: 100
     }
 ]
+
+const monsters = [
+    {
+        name: "Slime",
+        level: 2,
+        vida: 15
+    },
+    {
+        name: "Besta de Presas",
+        level: 8,
+        vida: 60
+    },
+    {
+        name: "Dragão",
+        level: 20,
+        vida: 300
+    }
+]
+
 const locations = [
     {
         name: "town square",
@@ -51,6 +70,12 @@ const locations = [
         "button text": ["Lutar contra Slime", "Lutar contra a Besta de Presas", "Ir para praça da cidade"],
         "button functions": [fightSlime, fightBeast, goTown],
         text: "Você entra na caverna. Você vê alguns monstros."
+    },
+    {
+        name: "lutando",
+        "button text": ["Atacar", "Esquivar", "Correr"],
+        "button functions": [attack, dodge, goTown],
+        text: "Você está lutando contra um montro."
     }
 ]
 
@@ -80,10 +105,6 @@ function goCave() {
     update(locations[2]);
 }
 
-function fightDragon() {
-    console.log("Fighting dragon.");
-}
-
 function buyHealth() {
     if (gold >= 10) {
         gold -= 10;
@@ -96,19 +117,62 @@ function buyHealth() {
 }
 
 function buyWeapon() {
-    if (gold >= 30) {
-        gold -= 30;
-        currentWeapon++;
+    if (currentWeapon < weapons.length - 1) {
+        if (gold >= 30) {
+            gold -= 30;
+            currentWeapon++;
+            goldText.innerText = gold;
+            let newWeapon = weapons[currentWeapon].name;
+            text.innerText = "Agora você tem uma " + newWeapon + ".";
+            inventory.push(newWeapon);
+            text.innerText += " Em seu inventario tem: " + inventory;
+        } else {
+            text.innerText = "Você não tem ouro suficiente para comprar uma arma.";
+        }
+    } else {
+        text.innerText = "Você já possui a arma mais poderosa!";
+        button2.innerText = "Vender arma por 15 de ouro";
+        button2.onclick = sellWeapon;
+    }
+}
+
+function sellWeapon() {
+    if (inventory.length > 1) {
+        gold += 15;
         goldText.innerText = gold;
-        let newWeapon = weapons;
-        text.innerText = "Agora você tem uma nova arma."
+        let currentWeapon = inventory.shift();
+        text.innerText = "Você vendeu " + currentWeapon + ".";
+        text.innerText += " Você tem em seu inventario: " + inventory;
+    } else {
+        text.innerText = "Não venda sua unica arma!"
     }
 }
 
 function fightSlime() {
-    
+    fighting = 0;
+    goFight();
 }
 
 function fightBeast() {
+    fighting = 1;
+    goFight();
+}
+
+function fightDragon() {
+    fighting = 2;
+    goFight
+}
+
+function goFight() {
+    update(locations[3])
+    monsterHealth = monsters[fighting].health;
+    monsterStats.style.display = 'block';
+}
+
+function attack() {
+    
+}
+
+function dodge() {
     
 }
