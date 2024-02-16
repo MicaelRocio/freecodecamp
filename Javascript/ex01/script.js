@@ -5,6 +5,7 @@ let currentWeapon = 0;
 let fighting;
 let monsterHealth;
 let inventory = ["Graveto"];
+
 const button1 = document.querySelector("#button1")
 const button2 = document.querySelector("#button2")
 const button3 = document.querySelector("#button3")
@@ -165,7 +166,7 @@ function fightDragon() {
 
 function goFight() {
     update(locations[3]);
-    monsterHealth = monsters[fighting].health;
+    monsterHealth = monsters[fighting].vida;
     monsterStats.style.display = "block";
     monsterName.innerText = monsters[fighting].name;
     monsterHealthText.innerText = monsterHealth;
@@ -175,8 +176,29 @@ function goFight() {
 function attack() {
     text.innerText = "O " + monsters[fighting].name + " ataca.";
     text.innerText += " Você ataca ele com " + weapons[currentWeapon].name + ".";
+    health -= monsters[fighting].level;
+    monsterHealth -= weapons[currentWeapon].power + Math.floor(Math.random() * xp) + 1;
+    healthText.innerText = health;
+    monsterHealthText.innerText = monsterHealth;
+    if (health <= 0) {
+        lose();
+    } else if (monsterHealth <= 0) {
+        defeatMonster();
+    }
 }
 
 function dodge() {
+    text.innerText = "Você se esquivou do ataque do " + monsters[fighting].name;
+}
+
+function defeatMonster() {
+    update(locations[4]);
+    gold += Math.floor(monsters[fighting].level * 6.7);
+    xp += monsters[fighting].level;
+    goldText.innerText = gold;
+    xpText.innerText = xp;
+}
+
+function lose() {
     
 }
