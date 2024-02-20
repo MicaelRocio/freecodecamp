@@ -33,7 +33,7 @@ const weapons = [
         name: "Espada",
         power: 100
     }
-]
+];
 
 const monsters = [
     {
@@ -95,8 +95,14 @@ const locations = [
         "button text": ["REPLAY?", "REPLAY?", "REPLAY?"],
         "button functions": [restart, restart, restart],
         text: "You defeat the dragon! YOU WIN THE GAME! &#x1F389;"
+    },
+    {
+        name: "easter egg",
+        "button text": ["2", "8", "Ir para praça da cidade?"],
+        "button functions": [pickTwo, pickEight, goTown],
+        text: "Você encontra um jogo secreto. Escolha um número acima. Dez números serão escolhidos aleatoriamente entre 0 e 10. Se o número que você escolher corresponder a um dos números aleatórios, você ganha!"
     }
-]
+];
 
 button1.onclick = goStore;
 button2.onclick = goCave;
@@ -180,7 +186,7 @@ function fightBeast() {
 
 function fightDragon() {
     fighting = 2;
-    goFight
+    goFight();
 }
 
 function goFight() {
@@ -196,7 +202,11 @@ function attack() {
     text.innerText = "O " + monsters[fighting].name + " ataca.";
     text.innerText += " Você ataca ele com " + weapons[currentWeapon].name + ".";
     health -= getMonsterAttackValue(monsters[fighting].level);
-    monsterHealth -= weapons[currentWeapon].power + Math.floor(Math.random() * xp) + 1;
+    if (isMonsterHit()) {
+        monsterHealth -= weapons[currentWeapon].power + Math.floor(Math.random() * xp) + 1;
+    } else {
+        text.innerText += " You miss."
+    }
     healthText.innerText = health;
     monsterHealthText.innerText = monsterHealth;
     if (health <= 0) {
@@ -208,11 +218,20 @@ function attack() {
             defeatMonster();
         }
     }
+    if (Math.random() <= .1 && inventory.length !== 1) {
+        text.innerText += " Sua " + inventory.pop() + " quebrou.";
+        currentWeapon--;
+    }
 }
 
 function getMonsterAttackValue(level) {
     const hit = (level * 5) - (Math.floor(Math.random() * xp));
     console.log(hit);
+    return hit > 0 ? hit : 0;
+}
+
+function isMonsterHit() {
+        Math.random() > .2 || health < 20;
 }
 
 function dodge() {
@@ -244,5 +263,24 @@ function restart() {
     goldText.innerText = gold;
     healthText.innerText = health;
     xpText.innerText = xp;
-    goTown()
+    goTown();
+}
+
+function easterEgg() {
+    update(locations[7])
+}
+
+function pick(guess) {
+    const numbers = [];
+    while (numbers.length < 10) {
+        
+    }
+}
+
+function pickTwo() {
+    pick(2);
+}
+
+function pickEight() {
+    pick(8);
 }
