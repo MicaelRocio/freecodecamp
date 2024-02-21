@@ -81,7 +81,7 @@ const locations = [
     {
         name: "kill monster",
         "button text": ["Ir para praça", "Ir para praça", "Ir para praça"],
-        "button functions": [goTown, goTown, goTown],
+        "button functions": [goTown, goTown, easterEgg],
         text: 'O monstro grita "Arg!" enquanto morre. Você ganha pontos de experiência e encontra ouro.'
     },
     {
@@ -205,7 +205,7 @@ function attack() {
     if (isMonsterHit()) {
         monsterHealth -= weapons[currentWeapon].power + Math.floor(Math.random() * xp) + 1;
     } else {
-        text.innerText += " You miss."
+        text.innerText += " Você errou."
     }
     healthText.innerText = health;
     monsterHealthText.innerText = monsterHealth;
@@ -231,7 +231,7 @@ function getMonsterAttackValue(level) {
 }
 
 function isMonsterHit() {
-        Math.random() > .2 || health < 20;
+       return Math.random() > .2 || health < 20;
 }
 
 function dodge() {
@@ -259,7 +259,7 @@ function restart() {
     health = 100;
     gold = 50;
     currentWeapon = 0;
-    inventory = "stick";
+    inventory = "graveto";
     goldText.innerText = gold;
     healthText.innerText = health;
     xpText.innerText = xp;
@@ -270,17 +270,33 @@ function easterEgg() {
     update(locations[7])
 }
 
-function pick(guess) {
-    const numbers = [];
-    while (numbers.length < 10) {
-        
-    }
-}
-
 function pickTwo() {
     pick(2);
 }
 
 function pickEight() {
     pick(8);
+}
+
+function pick(guess) {
+    const numbers = [];
+    while (numbers.length < 10) {
+        numbers.push(Math.floor(Math.random() * 11));
+    }
+    text.innerText = "Você escolheu " + guess + ". Aqui estão os números aleatórios:\n";
+    for (let i = 0; i < 10; i++) {
+        text.innerText += numbers[i] + "\n";
+    }
+    if (numbers.includes(guess)) {
+        text.innerText += "Acertou! Você ganhou 20 de gold!";
+        gold += 20;
+        goldText.innerText = gold;
+    } else {
+        text.innerText += "Errou! Você perdeu 10 de vida!";
+        health -= 10;
+        healthText.innerText = health;
+        if (health <= 0) {
+            lose()
+        }
+    }
 }
