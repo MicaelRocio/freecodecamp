@@ -1,0 +1,29 @@
+Quando o elemento #text-input contiver apenas a letra "A" e o botão #check-btn for clicado, o elemento #result deve conter o texto: "A é um palíndromo."
+
+Quando o #text-input contiver o texto "eye" e o botão #check-btn for clicado, o #result deve conter o texto: "eye é um palíndromo."
+
+Quando o #text-input contiver o texto "_eye" e o botão #check-btn for clicado, o #result deve conter o texto: "_eye é um palíndromo."
+
+Quando o #text-input contiver o texto "race car" e o botão #check-btn for clicado, o #result deve conter o texto: "race car é um palíndromo."
+
+Quando o #text-input contiver o texto "not a palindrome" e o botão #check-btn for clicado, o #result deve conter o texto: "not a palindrome não é um palíndromo."
+
+Quando o #text-input contiver o texto "A man, a plan, a canal. Panama" e o botão #check-btn for clicado, o #result deve conter o texto: "A man, a plan, a canal. Panama é um palíndromo."
+
+Quando o #text-input contiver o texto "never odd or even" e o botão #check-btn for clicado, o #result deve conter o texto: "never odd or even é um palíndromo."
+
+Quando o #text-input contiver o texto "nope" e o botão #check-btn for clicado, o #result deve conter o texto: "nope não é um palíndromo."
+
+Quando o #text-input contiver o texto "almostomla" e o botão #check-btn for clicado, o #result deve conter o texto: "almostomla não é um palíndromo."
+
+Quando o #text-input contiver o texto "My age is 0, 0 si ega ym." e o botão #check-btn for clicado, o #result deve conter o texto: "My age is 0, 0 si ega ym. é um palíndromo."
+
+Quando o #text-input contiver o texto "1 eye for of 1 eye." e o botão #check-btn for clicado, o #result deve conter o texto: "1 eye for of 1 eye. não é um palíndromo."
+
+Quando o #text-input contiver o texto "0_0 (: /-\ :) 0-0" e o botão #check-btn for clicado, o #result deve conter o texto: "0_0 (: /-\ :) 0-0 é um palíndromo."
+
+Quando o #text-input contiver o texto "five|_/|four" e o botão #check-btn for clicado, o #result deve conter o texto: "five|_/|four não é um palíndromo."
+
+Quando o #text-input contiver um palíndromo alfanumérico, o #result deve identificá-lo corretamente como um palíndromo.
+
+Quando o #text-input contiver uma sequência aleatória de caracteres alfanuméricos que não é um palíndromo, o #result deve indicar corretamente que não é um palíndromo.
