@@ -1,13 +1,14 @@
 // Exemplos de Códigos e para que serve.
 
-// ++ operaçao de incremento 
+// ++ operaçao de incremento
+// -- operação de decréscimo 
 // == operação de igualdade de valor
 // === operacão de igualdade de valor e tipo
 
-var ex1 = "#";
-const ex2 = "#";
-let ex3 = "#";
 // Exemplos de variaveis
+var ex1 = "#";
+const ex2 = 8;
+let ex3 = []; // temos um array como valor nesta variavel
 
 const title = " Professor "
 function demo(name) {
@@ -73,3 +74,27 @@ if (condition) {
 /* Além das declarações IF, o JavaScript também possui declarações else if que faz com que declarações permitirem verificar várias condições em um único bloco de código. Se a primeira condição for falsa, o JavaScript verificará a próxima condição na cadeia.
 Se a segunda condição for falsa, o JavaScript verificará a terceira condição e assim por diante.
 */
+
+function ex4(exNumber, exCount) {
+  return " ".repeat(exCount - exNumber) + ex1.repeat(2 * exNumber - 1) + " ".repeat(exCount - exNumber);
+}
+for (let i = 1; i <= ex2; i++) {
+  ex3.push(ex4(i, ex2));
+}
+/* Aqui temos um metodo para empurrar um valor em um array. .push() está empurrando o valor da função ex4 dentro do array ex3.
+*/
+
+const contingdown = [2, 1, 0];
+const newLength = Countdown.unshift (3);
+console.log (Countdown); // [3, 2, 1, 0]
+console.log (newLength); // 4
+/* O método .unshift() de um array permite adicionar um valor ao início do array, diferentemente .push() que adiciona o valor no final do array. .unshift() retorna o novo comprimento da matriz em que foi chamado.
+*/
+
+const numeros1 = [1, 2, 3]
+numeros1.pop(); // [1, 2]
+// O método .pop() remove o ultimo elemento do array
+
+const numeros2 = [1, 2, 3];
+numeros2.shift(); // [2, 3]
+// O método .shift() diferente do .pop() remove o primeiro
