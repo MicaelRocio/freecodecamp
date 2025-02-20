@@ -300,3 +300,4 @@ function pick(guess) {
         }
     }
 }
+const body = document.querySelector(body)

@@ -98,3 +98,29 @@ numeros1.pop(); // [1, 2]
 const numeros2 = [1, 2, 3];
 numeros2.shift(); // [2, 3]
 // O método .shift() diferente do .pop() remove o primeiro
+
+
+
+function shuffleArray(array) {
+  let shuffled = array.slice(); // Faz uma cópia do array original
+  for (let i = shuffled.length - 1; i > 0; i--) {
+      let j = Math.floor(Math.random() * (i + 1)); // Pega um índice aleatório
+      [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]]; // Troca os elementos
+  }
+  return shuffled;
+}
+
+//Para randomizar um array em JavaScript
+
+let numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+console.log(shuffleArray(numbers));// Exemplo de saída: [4, 1, 9, 6, 2, 7, 5, 3, 8]
+/* Fisher-Yates É um código um pouco maior, mas é justo e eficiente para	embaralhar arrays completamente*/
+
+let shuffled = numbers.sort(() => Math.random() - 0.5);
+console.log(shuffled); // Exemplo de saída: [3, 9, 6, 1, 5, 8, 4, 2, 7]
+/* .sort() com Math.random() Faz pequenos embaralhamentos rápidos sendo	simples e curto, mas	pode não ser totalmente aleatório.*/
+
+let colors = ["red", "blue", "green", "yellow", "purple"];
+let randomColor = colors[Math.floor(Math.random() * colors.length)];
+console.log(randomColor); /* Exemplo de saída: "green"
+// Math.random() Para escolher um item aleatório dendo	muito simples e rápido,	não embaralha o array*/
