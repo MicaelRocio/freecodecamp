@@ -124,3 +124,17 @@ let colors = ["red", "blue", "green", "yellow", "purple"];
 let randomColor = colors[Math.floor(Math.random() * colors.length)];
 console.log(randomColor); /* Exemplo de saída: "green"
 // Math.random() Para escolher um item aleatório dendo	muito simples e rápido,	não embaralha o array*/
+
+function isInvalidInput(str) {
+  const regex = /[eE][+-]?\d+/;  // Expressão regular para verificar notação exponencial
+  return regex.test(str);  // Retorna true se a regex encontrar o padrão
+}
+/* Explicando o código:
+    O código regex serve para não deixar caracteres diferentes sejão rejeitados na função
+  /[eE][+-]?\d+/:
+
+    [eE]: Verifica se tem a letra "e" ou "E".
+    [+-]?: Verifica se pode ter um sinal de mais ou   menos (opcional).
+    \d+: Verifica se há pelo menos um número depois do "e" ou "E".
+  regex.test(str): O método test() retorna true se a string str contiver o padrão da regex (a notação exponencial) e false caso contrário.
+*/
