@@ -1,17 +1,45 @@
-let text = document.querySelector('input#text-input');
-let res = document.querySelector('input#result');
-let palavra = [];
-
-function button() {
-    if (text.value && true) {
-        palavra.push(text.value)
+function getRandomComputerResult() {
+    const options = ["Rock", "Paper", "Scissors"];
+    const randomIndex = Math.floor(Math.random() * options.length);
+    return options[randomIndex];
+}
+  
+function hasPlayerWonTheRound(player, computer) {
+    return (
+      (player === "Rock" && computer === "Scissors") ||
+      (player === "Scissors" && computer === "Paper") ||
+      (player === "Paper" && computer === "Rock")
+    );
+}
+  
+let playerScore = 0;
+let computerScore = 0;
+  
+function getRoundResults(userOption) {
+    const computerResult = getRandomComputerResult();
+  
+    if (hasPlayerWonTheRound(userOption, computerResult)) {
+      playerScore++;
+      return `Player wins! ${userOption} beats ${computerResult}`;
+    } else if (computerResult === userOption) {
+      return `It's a tie! Both chose ${userOption}`;
     } else {
-        window.alert('Please input a value')
+      computerScore++;
+      return `Computer wins! ${computerResult} beats ${userOption}`;
     }
 }
-
-function vpalavra() {
-    if (palavra.value == "A") {
-        res = "A is a palindrome"
-    }
+  
+const playerScoreSpanElement = document.getElementById("player-score");
+const computerScoreSpanElement = document.getElementById("computer-score");
+const roundResultsMsg = document.getElementById("results-msg");
+  
+function showResults(userOption) {
+    const resultMessage = getRoundResults(userOption);
+    
+    roundResultsMsg.innerText = resultMessage;
+    
+    playerScoreSpanElement.innerText = playerScore;
+    computerScoreSpanElement.innerText = computerScore;
 }
+  
+showResults("Rock");
