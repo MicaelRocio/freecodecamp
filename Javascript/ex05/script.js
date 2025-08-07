@@ -1,17 +1,23 @@
-let text = document.querySelector('input#text-input');
-let res = document.querySelector('input#result');
-let palavra = [];
+const textInput = document.getElementById("text-input");
+const checkBtn = document.getElementById("check-btn");
+const result = document.getElementById("result");
 
-function button() {
-    if (text.value && true) {
-        palavra.push(text.value)
-    } else {
-        window.alert('Please input a value')
-    }
+function isPalindrome(str) {
+  const cleaned = str.replace(/[^a-z0-9]/gi, "").toLowerCase();
+  return cleaned === cleaned.split("").reverse().join("");
 }
 
-function vpalavra() {
-    if (palavra.value == "A") {
-        res = "A is a palindrome"
-    }
-}
+checkBtn.addEventListener("click", () => {
+  const text = textInput.value;
+
+  if (text.trim() === "") {
+    alert("Coloque um texto para verificar.");
+    return;
+  }
+
+  if (isPalindrome(text)) {
+    result.textContent = `${text} é um palíndromo.`;
+  } else {
+    result.textContent = `${text} não é um palíndromo.`;
+  }
+});
